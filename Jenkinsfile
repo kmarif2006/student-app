@@ -2,13 +2,13 @@ pipeline{
     agent any
     stages{
         stage('Build'){
-            steps { sh 'mvn clean package'}
+            steps { bat 'mvn clean package'}
         }
         stage('Docker Build'){
-            steps {sh 'docker build -t student-app .'}
+            steps { bat 'docker build -t student-app .'}
         }
         stage('Docker Run'){
-            steps{sh 'docker run -d -p 8001:3000 --name student-app student-app'}
+            steps{ bat 'docker run -d -p 8001:3000 --name student-app student-app'}
         }
     }
 }
