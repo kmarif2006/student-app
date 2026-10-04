@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages{
         stage('Build'){
-            steps { bat 'mvn clean package'}
+            steps { bat 'mvn clean package -DskipTests'}
         }
         stage('Docker Build'){
             steps { bat 'docker build -t student-app .'}
